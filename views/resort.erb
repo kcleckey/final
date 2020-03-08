@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-sm-9">
+        <h1><%= @resort[:resort_name] %></h1>
+        <p><%= @resort[:description] %></p>
+        <p><%= @resort[:location] %></p>
+    </div>
+</div>
+    <p class="mt-5">
+            <a href="/resorts/<%= @resort[:id] %>/reviews/new" class="btn btn-primary">Submit a review!</a>
+        <% else %>
+            <a href="/logins/new" class="btn btn-primary">Please sign in to submit a review!</a>
+        <% end %>
+    </p>

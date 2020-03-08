@@ -1,0 +1,5 @@
+<h1>All Resorts</h1>
+
+<% for resort in @resorts %>
+    <p><a href="/resorts/<%= resort[:id] %>"><%= resort[:resort_name] %></a></p>
+<% end %>

@@ -5,31 +5,33 @@ DB = Sequel.connect(connection_string)                                          
 #######################################################################################
 
 # Database schema - this should reflect your domain model
-DB.create_table! :events do
+DB.create_table! :resorts do
   primary_key :id
-  String :title
+  String :resort_name
   String :description, text: true
-  String :date
   String :location
 end
-DB.create_table! :rsvps do
+DB.create_table! :reviews do
   primary_key :id
-  foreign_key :event_id
-  Boolean :going
+  foreign_key :resort_id
+  foreign_key :user_id
+  String :comments, text: true
+  String :rating
+end
+DB.create_table! :users do
+  primary_key :id
   String :name
   String :email
-  String :comments, text: true
+  String :password
 end
 
 # Insert initial (seed) data
-events_table = DB.from(:events)
+resorts_table = DB.from(:resorts)
 
-events_table.insert(title: "Bacon Burger Taco Fest", 
-                    description: "Here we go again bacon burger taco fans, another Bacon Burger Taco Fest is here!",
-                    date: "June 21",
-                    location: "Kellogg Global Hub")
+resorts_table.insert(resort_name: "Mt. Snow", 
+                    description: "The East Coast's premiere ski destination!",
+                    location: "Dover, VT")
 
-events_table.insert(title: "Kaleapolooza", 
-                    description: "If you're into nutrition and vitamins and stuff, this is the event for you.",
-                    date: "July 4",
-                    location: "Nowhere")
+resorts_table.insert(resort_name: "Deer valley", 
+                    description: "Exclusive skiing for an exclusive clientele.",
+                    location: "Park City, UT")

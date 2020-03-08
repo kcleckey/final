@@ -1,0 +1,9 @@
+<h1>Review for <%= @resort[:resort_name] %></h1>
+
+<form action="/resorts/<%= @resort[:id] %>/reviews/create">
+  <div class="form-group">
+    <label>What did you think?</label>
+    <textarea class="form-control" rows="3" name="comments"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
