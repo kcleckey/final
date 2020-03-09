@@ -5,9 +5,4 @@
         <p><%= @resort[:location] %></p>
     </div>
 </div>
-    <p class="mt-5">
             <a href="/resorts/<%= @resort[:id] %>/reviews/new" class="btn btn-primary">Submit a review!</a>
-        <% else %>
-            <a href="/logins/new" class="btn btn-primary">Please sign in to submit a review!</a>
-        <% end %>
-    </p>
