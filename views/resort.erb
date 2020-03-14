@@ -1,14 +1,14 @@
 <div class="row">
     <div class="col-sm-9">
         <h1><%= @resort[:resort_name] %></h1>
+        <h5><%= @resort[:description] %></h5>
         <iframe
-        width="250"
-        height=""
+        width="400"
+        height="400"
         frameborder="0" style="border:0"
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
           &q=<%= @lat%>,<%= @long %>&zoom=4" allowfullscreen>
       </iframe>
-        <p><%= @resort[:description] %></p>
         <p class="mt-5">
             <% if @current_user %>
                 <a href="/resorts/<%= @resort[:id] %>/reviews/new" class="btn btn-primary">Write a review!</a>
