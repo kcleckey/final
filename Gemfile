@@ -4,6 +4,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sequel'
 gem 'twilio-ruby'
+gem 'geocoder'
 gem 'bcrypt'
 
 group :development do 
