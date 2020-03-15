@@ -1,14 +1,14 @@
 <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-6">
         <h1><%= @resort[:resort_name] %></h1>
         <h5><%= @resort[:description] %></h5>
         <iframe
-        width="400"
-        height="400"
-        frameborder="0" style="border:0"
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
-          &q=<%= @lat%>,<%= @long %>&zoom=4" allowfullscreen>
-      </iframe>
+            width="400"
+            height="400"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+            &q=<%= @lat%>,<%= @long %>&zoom=4" allowfullscreen>
+        </iframe>
         <p class="mt-5">
             <% if @current_user %>
                 <a href="/resorts/<%= @resort[:id] %>/reviews/new" class="btn btn-primary">Write a review!</a>
@@ -16,5 +16,22 @@
                 <a href="/logins/new" class="btn btn-danger">Please sign in to write a review!</a>
             <% end %>
         </p>
+    </div>
+    <div class="col-sm-6">
+        <h1> Reviews </h1>
+        <% for review in @reviews %>
+                <div class="container">
+                    <div class="row">
+                        <h3 class="mt-2"><%= review[:rating] %>/5</h3>
+                    </div>
+                    <div class="row">
+                        <h5 class="mt-2"><%= review[:comments] %></h5>
+                    </div>
+                    <div class="row">
+                        <p><%= @users_table.where(id: review[:user_id]).to_a[0][:name] %></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>
